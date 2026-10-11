@@ -11,7 +11,7 @@ interface Props {
 const { 
   title = "Website Title", 
   description = "Website Description",
-  image = "/favicon.ico"
+  image = "/heatherlea-favicon.ico"
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || Astro.url.origin);
@@ -34,7 +34,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || Astro.url.origin)
     <meta property="og:description" content={description} />
     <meta property="og:image" content={image} />
 
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!-- Favicons -->
+    <link rel="icon" type="image/svg+xml" href="/heatherlea-favicon.svg" />
+    <link rel="icon" href="/heatherlea-favicon.ico" sizes="any" />
+    <link rel="apple-touch-icon" href="/heatherlea-favicon.png" />
+
 </head>
 
 <body>
@@ -44,7 +48,7 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || Astro.url.origin)
 <header class="header">
   <div class="header-inner">
       <a href="/" class="logo-link">
-        <img src="/favicon.svg" alt="" class="header-logo" width="32" height="32"/>
+        <img src="/heatherlea-favicon.svg" alt="Heatherlea Holiday Cottage logo" class="header-logo" width="32" height="32"/>
         <span class="logo-title">Website Title</span>
       </a>
   
