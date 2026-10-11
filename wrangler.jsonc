@@ -2,8 +2,11 @@
 	"$schema": "./node_modules/wrangler/config-schema.json",
 	"compatibility_date": "2026-10-06",
 	"compatibility_flags": ["global_fetch_strictly_public"],
-	"name": "green-page-stc-ss",
-	"observability": {
-		"enabled": true
-	}
+	"name": "heatherlea-holiday-cottage",
+	"observability": {"enabled": true},
+
+  	"vars": {
+    	"CONTACT_EMAIL": "rcorbett92@gmail.com",
+    	"SITE_NAME": "Heatherlea-Holiday-Cottage" },
+
 }
