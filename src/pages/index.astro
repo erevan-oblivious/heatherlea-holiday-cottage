@@ -1,18 +1,27 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroImage from '../components/HeroImage.astro';
 
 ---
 
 <BaseLayout 
-  title="Webpage Name | Business Name"
-  description="Webpage Description"
+  title="Welcome | Heatherlea Holiday Cottage"
+  description="Book Your Stay in Otterburn, Northumberland"
 >
 
 <section>
 
-  <header class="section-header">
-    <h1>Welcome</h1>
-  </header>
+  <HeroImage 
+  title = "Heatherlea Holiday Cottage",
+  lead = "Welcome to our beautiful holiday cottage in Otterburn, Northumberland. Perfect for weddings and journeys in Northumberland.",
+  description = "Detached holiday cottage with four bedrooms, two living rooms, kitchen, drive, and enclosed back garden. Pets welcome. Sleeps seven.",
+  bgImage = "/double-room-1.jpg",
+  bgImageMobile = "/double-room-1.jpg",
+  primaryButtonText = "Book Now",
+  primaryButtonLink,
+  tintOpacity = "55%",
+  
+  />
 
 </section>
 
