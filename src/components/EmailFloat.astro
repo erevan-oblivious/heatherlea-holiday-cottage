@@ -1,0 +1,79 @@
+---
+interface Props {
+  emailAddress?: string;
+  message?: string;
+  label?: string;
+  ariaLabel?: string;
+}
+
+const { 
+  emailAddress = "girsonfield@outlook.com",
+  message = "Hello, I would like to make an enquiry for Heatherlea Holiday Cottage.",
+  label = "Email Us",
+  ariaLabel = "Contact us or make a booking by email"
+} = Astro.props;
+
+const encodedMessage = encodeURIComponent(message);
+const emailUrl = `mailto:${emailAddress}?subject=Enquiry&body=${encodedMessage}`;
+---
+
+<a 
+  href={emailUrl} 
+  class="email-float" 
+  rel="noopener noreferrer"
+  aria-label={ariaLabel}
+>
+  <svg 
+    xmlns="http://www.w3.org/2000/svg" 
+    width="22" 
+    height="22" 
+    viewBox="0 0 24 24" 
+    fill="currentColor" 
+    class="email-icon"
+    aria-hidden="true"
+  >
+    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-8V6l8 5 8-8v2z"></path>
+  </svg>
+  <span class="email-label">{label}</span>
+</a>
+
+<style>
+  .email-float { 
+    position: fixed;
+    bottom: 6rem;
+    right: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    background-color: #BE3B2B;
+    color: #ffffff;
+    padding: 0.75rem 1.25rem;
+    border-radius: 9999px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+    font-size: var(--font-size-base, 0.9375rem);
+    font-weight: 600;
+    z-index: 999;
+    transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .email-float:hover {
+    background-color: #7C8E96;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Responsive behavior for mobile */
+  @media (max-width: 640px) {
+    .email-float {
+      bottom: 1rem;
+      right: 5rem;
+      padding: 0.875rem;
+      border-radius: 50%;
+    }
+
+    .email-label {
+      display: none;
+    }
+  }
+</style>

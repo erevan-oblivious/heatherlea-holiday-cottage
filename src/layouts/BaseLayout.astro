@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css'; // Ensure import filename matches global_2.css
 import WhatsAppButton from '../components/WhatsAppFloat.astro';
+import EmailFloat from '../components/EmailFloat.astro';
 
 interface Props {
   title?: string;
@@ -63,6 +64,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || Astro.url.origin)
     <a href="/accessibility">Accessibility Statement</a>
   </nav>
 
+  <EmailFloat />
+  
   <WhatsAppButton phoneNumber="+447713651215" message="Hello. I'd like to inquire about booking a stay at Heatherlea Holiday Cottage." />
 
 </footer>
