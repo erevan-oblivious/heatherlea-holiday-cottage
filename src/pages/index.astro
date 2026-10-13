@@ -3,6 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroImage from '../components/HeroImage.astro';
 import MasonryGallery from '../components/MasonryGallery.astro';
 import GoogleMaps from '../components/GoogleMaps.astro';
+import CardColumn from '../components/CardColumn.astro';
+import WebForm from '../components/WebForm.astro';
 
 import room1 from '../images/outside-1.jpg';
 import room2 from '../images/master-room-1.jpg';
@@ -14,6 +16,8 @@ import room7 from '../images/sun-room-1.jpg';
 import room8 from '../images/kitchen-1.jpg';
 import room9 from '../images/bathroom-1.jpg';
 import room10 from '../images/garden-1.jpg';
+import room11 from '../images/outside-2.jpg';
+import room12 from '../images/en-suite-1.jpg';
 
 const galleryImages = [
   { src: room1, alt: "Outside the front of Heatherlea Cottage" },
@@ -25,7 +29,9 @@ const galleryImages = [
   { src: room7, alt: "The Sun Room" },
   { src: room8, alt: "The Kitchen" },
   { src: room9, alt: "The Main Bathroom" },
-  { src: room10, alt: "The Enclosed Back Garden" }
+  { src: room10, alt: "The Enclosed Back Garden" },
+  { src: room11, alt: "The Front Garden" },
+  { src: room12, alt: "The En-Suite Bathroom" }
 ];
 
 ---
@@ -78,6 +84,18 @@ const galleryImages = [
   </div>
 
   <GoogleMaps />
+
+</section>
+
+<section>
+
+  <CardColumn />
+
+</section>
+
+<section>
+
+<WebForm />
 
 </section>
 

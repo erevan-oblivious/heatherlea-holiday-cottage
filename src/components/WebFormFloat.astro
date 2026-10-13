@@ -1,28 +1,22 @@
 ---
 interface Props {
-  emailAddress?: string;
-  message?: string;
+  targetId?: string;
   label?: string;
   ariaLabel?: string;
 }
 
 const { 
-  emailAddress = "girsonfield@outlook.com",
-  message = "Hello, I would like to make an enquiry for Heatherlea Holiday Cottage.",
-  label = "Email Us",
-  ariaLabel = "Contact us or make a booking by email"
+  targetId = "contact-form",
+  label = "Enquire Now",
+  ariaLabel = "Scroll to contact and booking form"
 } = Astro.props;
-
-const encodedMessage = encodeURIComponent(message);
-const emailUrl = `mailto:${emailAddress}?subject=Enquiry&body=${encodedMessage}`;
 ---
 
 <a 
-  href={emailUrl} 
-  class="email-float" 
-  rel="noopener noreferrer"
+  href={`#${targetId}`}
+  class="enquire-float" 
   aria-label={ariaLabel}
->
+  >
   <svg 
     xmlns="http://www.w3.org/2000/svg" 
     width="22" 
@@ -32,20 +26,21 @@ const emailUrl = `mailto:${emailAddress}?subject=Enquiry&body=${encodedMessage}`
     class="email-icon"
     aria-hidden="true"
   >
-    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-8V6l8 5 8-8v2z"></path>
+    <path d="M20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6C22 4.9 21.1 4 20 4ZM20 8L12 13L4 8V6L12 11L20 6V8Z" />
   </svg>
-  <span class="email-label">{label}</span>
+
+  <span class="enquire-label">{label}</span>
 </a>
 
 <style>
-  .email-float { 
+  .enquire-float { 
     position: fixed;
     bottom: 6rem;
     right: 1.5rem;
     display: flex;
     align-items: center;
     gap: 0.625rem;
-    background-color: #BE3B2B;
+    background-color: #7C8E96;
     color: #ffffff;
     padding: 0.75rem 1.25rem;
     border-radius: 9999px;
@@ -57,22 +52,23 @@ const emailUrl = `mailto:${emailAddress}?subject=Enquiry&body=${encodedMessage}`
     transition: transform 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
   }
 
-  .email-float:hover {
-    background-color: #7C8E96;
+  .enquire-float:hover {
+    background-color: #BE3B2B;
+    color: #ffffff;
     transform: translateY(-2px);
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
   }
 
   /* Responsive behavior for mobile */
   @media (max-width: 640px) {
-    .email-float {
+    .enquire-float {
       bottom: 1rem;
       right: 5rem;
       padding: 0.875rem;
       border-radius: 50%;
     }
 
-    .email-label {
+    .enquire-label {
       display: none;
     }
   }

@@ -8,32 +8,45 @@ interface ColumnItem {
 interface Props {
   eyebrow?: string;
   title?: string;
-  subtitle?: string;
   items?: ColumnItem[];
 }
 
 const defaultItems: ColumnItem[] = [
   {
     number: "01",
-    title: "Feature or Value 01",
-    description: "Detailed explanation of this specific value, feature, or key step in your workflow."
+    title: "Spacious Bedrooms",
+    description: "Master bedroom with a king-size bed and en-suite, a ground-floor double bedroom, a twin bedroom, and a single bedroom (cots available)."
   },
   {
     number: "02",
-    title: "Feature or Value 02",
-    description: "Detailed explanation of this specific value, feature, or key step in your workflow."
+    title: "Cottage Amenities",
+    description: "Fully equipped kitchen, ground-floor bathroom with bath and walk-in shower, free WiFi, 42″ TV, washing machine, and an enclosed garden perfect for pets and children."
   },
   {
     number: "03",
-    title: "Feature or Value 03",
-    description: "Detailed explanation of this specific value, feature, or key step in your workflow."
+    title: "Wedding Guest Haven",
+    description: "Perfectly positioned just a short walk from Otterburn’s premier venues: 3 minutes to Otterburn Castle, 5 minutes to Le Petit Château, and 15 minutes to Woodhill Hall."
+  },
+  {
+    number: "04",
+    title: "Racing Enthusiast Base",
+    description: "Close to Susan Corbett Racing and within convenient driving distance of racecourses across Northumberland, Cumbria, Durham, and the Scottish Borders."
+  },
+  {
+    number: "05",
+    title: "Exploring the Outdoors",
+    description: "Situated on the doorstep of Northumberland National Park for scenic walks, with world-class stargazing at Kielder Dark Skies just a 25-minute drive away."
+  },
+  {
+    number: "06",
+    title: "History & Heritage",
+    description: "Within easy reach of Hadrian’s Wall Roman forts, National Trust estates like Cragside and Wallington Hall, and historic sites across the Scottish Borders."
   }
 ];
 
 const {
-  eyebrow,
-  title,
-  subtitle,
+  eyebrow = "Visitor Information",
+  title = "Everything You Need To Know",
   items = defaultItems
 } = Astro.props;
 ---
@@ -42,11 +55,10 @@ const {
   <div class="card-column-container">
     
     <!-- Section Header -->
-    {(eyebrow || title || subtitle) && (
+    {(eyebrow || title) && (
       <header class="card-column-header">
         {eyebrow && <span class="card-column-eyebrow">{eyebrow}</span>}
         {title && <h2 class="card-column-title">{title}</h2>}
-        {subtitle && <p class="card-column-subtitle">{subtitle}</p>}
       </header>
     )}
 
@@ -91,7 +103,7 @@ const {
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    color: var(--text-primary);
+    color: var(--text-secondary);
     display: block;
     margin-bottom: 0.75rem;
   }
@@ -99,7 +111,7 @@ const {
   .card-column-title {
     font-family: var(--font-family-base);
     font-size: clamp(2.25rem, 4vw, 3.125rem);
-    color: var(--text-primary);
+    color: var(--text-secondary);
     line-height: 1.15;
     margin: 0 0 1rem 0;
   }
@@ -108,21 +120,22 @@ const {
     font-size: 1.125rem;
     line-height: 1.6;
     color: var(--text-secondary);
+    opacity: 0.9;
     margin: 0;
   }
 
   /* Grid Layout */
   .card-column-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1.5rem;
   }
 
   /* Individual Card */
   .card-column-card {
     position: relative;
-    padding: 1.75rem;
-    background-color: var(--primary, rgba(255, 255, 255, 0.03));
+    padding: 2rem;
+    background-color: rgba(255, 255, 255, 0.08);
     border: 1px solid var(--border-subtle);
     border-radius: var(--radius-md, 8px);
     transition: transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
@@ -130,8 +143,8 @@ const {
 
   .card-column-card:hover {
     transform: translateY(-3px);
-    border-color: var(--text-primary);
-    background-color: rgba(255, 255, 255, 0.05);
+    border-color: var(--text-secondary);
+    background-color: rgba(255, 255, 255, 0.12);
   }
 
   /* Number Indicator */
@@ -150,7 +163,7 @@ const {
     font-family: var(--font-family-base);
     font-size: var(--font-size-lg, 1.25rem);
     font-weight: 700;
-    color: var(--text-primary);
+    color: var(--text-secondary);
     line-height: 1.25;
     margin: 0 0 0.75rem 0;
   }
@@ -159,6 +172,7 @@ const {
     font-size: var(--font-size-base, 1rem);
     line-height: 1.65;
     color: var(--text-secondary);
+    opacity: 0.9;
     margin: 0;
   }
 
