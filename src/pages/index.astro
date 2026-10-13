@@ -1,6 +1,33 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroImage from '../components/HeroImage.astro';
+import MasonryGallery from '../components/MasonryGallery.astro';
+
+import room1 from '../images/outside-1.jpg';
+import room2 from '../images/master-room-1.jpg';
+import room3 from '../images/double-room-1.jpg';
+import room4 from '../images/twin-room-2.jpg';
+import room5 from '../images/single-room-1.jpg';
+import room6 from '../images/living-room-1.jpg';
+import room7 from '../images/living-room-2.jpg';
+import room8 from '../images/sun-room-1.jpg';
+import room9 from '../images/kitchen-1.jpg';
+import room10 from '../images/bathroom-1.jpg';
+import room11 from '../images/garden-1.jpg';
+
+const galleryImages = [
+  { src: room1, alt: "Outside the front of Heatherlea Cottage" },
+  { src: room2, alt: "The Master Bedroom" },
+  { src: room3, alt: "The Groundfloor Double Room" },
+  { src: room4, alt: "The Twin Room" },
+  { src: room5, alt: "The Single Room" },
+  { src: room6, alt: "The Living Room" },
+  { src: room7, alt: "The Living Room" },
+  { src: room8, alt: "The Sun Room" },
+  { src: room9, alt: "The Kitchen" },
+  { src: room10, alt: "The Main Bathroom" },
+  { src: room11, alt: "The Enclosed Back Garden" }
+];
 
 ---
 
@@ -19,9 +46,20 @@ import HeroImage from '../components/HeroImage.astro';
   bgImageMobile = "/double-room-1.jpg",
   primaryButtonText = "Book Now",
   primaryButtonLink,
-  tintOpacity = "55%",
+  tintOpacity = "40%",
   
   />
+
+</section>
+
+<section>
+
+  <header class="section-header">
+    <span class="section-eyebrow">Photo Gallery</span>
+    <h2>Take a look around</h2>
+  </header>
+
+  <MasonryGallery images={galleryImages} />
 
 </section>
 

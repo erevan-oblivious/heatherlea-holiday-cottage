@@ -15,6 +15,7 @@
   "dependencies": {
     "@astrojs/cloudflare": "^14.3.4",
     "astro": "^7.3.5",
+    "photoswipe": "^5.4.4",
     "wrangler": "^4.148.0"
   },
   "allowScripts": {
