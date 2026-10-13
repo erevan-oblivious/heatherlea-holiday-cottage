@@ -2,6 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import HeroImage from '../components/HeroImage.astro';
 import MasonryGallery from '../components/MasonryGallery.astro';
+import GoogleMaps from '../components/GoogleMaps.astro';
 
 import room1 from '../images/outside-1.jpg';
 import room2 from '../images/master-room-1.jpg';
@@ -9,11 +10,10 @@ import room3 from '../images/double-room-1.jpg';
 import room4 from '../images/twin-room-2.jpg';
 import room5 from '../images/single-room-1.jpg';
 import room6 from '../images/living-room-1.jpg';
-import room7 from '../images/living-room-2.jpg';
-import room8 from '../images/sun-room-1.jpg';
-import room9 from '../images/kitchen-1.jpg';
-import room10 from '../images/bathroom-1.jpg';
-import room11 from '../images/garden-1.jpg';
+import room7 from '../images/sun-room-1.jpg';
+import room8 from '../images/kitchen-1.jpg';
+import room9 from '../images/bathroom-1.jpg';
+import room10 from '../images/garden-1.jpg';
 
 const galleryImages = [
   { src: room1, alt: "Outside the front of Heatherlea Cottage" },
@@ -22,11 +22,10 @@ const galleryImages = [
   { src: room4, alt: "The Twin Room" },
   { src: room5, alt: "The Single Room" },
   { src: room6, alt: "The Living Room" },
-  { src: room7, alt: "The Living Room" },
-  { src: room8, alt: "The Sun Room" },
-  { src: room9, alt: "The Kitchen" },
-  { src: room10, alt: "The Main Bathroom" },
-  { src: room11, alt: "The Enclosed Back Garden" }
+  { src: room7, alt: "The Sun Room" },
+  { src: room8, alt: "The Kitchen" },
+  { src: room9, alt: "The Main Bathroom" },
+  { src: room10, alt: "The Enclosed Back Garden" }
 ];
 
 ---
@@ -60,6 +59,25 @@ const galleryImages = [
   </header>
 
   <MasonryGallery images={galleryImages} />
+
+</section>
+
+<section>
+
+  <header class="section-header">
+    <span class="section-eyebrow">Location</span>
+    <h2>Where to Find Us</h2>
+  </header>
+
+  <div class="prose-container">
+    <p>Nestled in the historic village of Otterburn, Heatherlea is perfectly placed for exploring the breathtaking Northumberland National Park, Kielder Water, and local wedding venues.</p>
+    <p>Heatherlea, Otterburn, Northumberland, NE19 1NT</p>
+    <a href="https://maps.app.goo.gl/pAtn62EytfGniBRz9" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+      View on Google Maps
+    </a>
+  </div>
+
+  <GoogleMaps />
 
 </section>
 
