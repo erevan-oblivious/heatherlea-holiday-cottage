@@ -118,7 +118,7 @@ a {
 /* Hover style */
 a:hover,
 a:focus-visible {
-  color: var(--text-secondary);
+  color: var(--secondary);
 }
 
 /* ==========================================================================
