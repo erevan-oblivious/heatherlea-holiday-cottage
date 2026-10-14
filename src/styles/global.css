@@ -416,6 +416,7 @@ hr.divider-full-inverted {
 .btn-primary:hover {
   opacity: 0.9;
   transform: translateY(-1px);
+  color: var(--text-secondary)
 }
 
 .btn-secondary {
