@@ -22,7 +22,12 @@ const { images } = Astro.props;
       data-pswp-height={img.src.height}
       class="masonry-item"
     >
-      <Image src={img.src} alt={img.alt} width={600} quality={80} />
+      <Image 
+      src={img.src} 
+      alt={img.alt} 
+      widths={[320, 600]} 
+      sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw" 
+      quality={80} />
     </a>
   ))}
 </div>
