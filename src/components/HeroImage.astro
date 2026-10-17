@@ -1,10 +1,11 @@
 ---
+import { Image } from 'astro:assets';
+
 interface Props {
   title?: string;
   lead?: string;
   description?: string;
-  bgImage: string;
-  bgImageMobile?: string; // Optional flag added
+  bgImage: ImageMetadata;
   
   primaryButtonText?: string;
   primaryButtonLink?: string;
@@ -19,22 +20,27 @@ const {
   lead,
   description,
   bgImage,
-  bgImageMobile,
   primaryButtonText = "Text for primary button",
   primaryButtonLink,
   secondaryButtonText = "Text for secondary button",
   secondaryButtonLink,
   tintOpacity = "25%",
 } = Astro.props;
-
-const mobileImage = bgImageMobile ? `url('${bgImageMobile}')` : `url('${bgImage}')`;
 ---
 
-<section 
-  class="hero-image-banner" 
-  style={`--bg-image: url('${bgImage}'); --bg-image-mobile: ${mobileImage}; --tint-opacity: ${tintOpacity};`}
->
-  <div class="hero-overlay" aria-hidden="true"></div>
+<section class="hero-image-banner">
+
+  <!-- Optimized Astro Background Image -->
+  <Image 
+    src={bgImage} 
+    alt="Heatherlea Holiday Cottage" 
+    widths={[640, 1024, 1920]} 
+    sizes="100vw"
+    loading="eager"
+    class="hero-bg" 
+  />
+  
+  <div class="hero-overlay" style={`--tint-opacity: ${tintOpacity};`}></div>
 
   <div class="hero-content">
     <div class="hero-text-group">
@@ -64,11 +70,10 @@ const mobileImage = bgImageMobile ? `url('${bgImageMobile}')` : `url('${bgImage}
           </a>
         )}
 
-        <!-- Changed class from btn-secondary to btn-transparent -->
         <a 
-          href="#about" 
+          href="#gallery" 
           class="btn-transparent" 
-          aria-label="Scroll to next section"
+          aria-label="Scroll to gallery"
         >
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d="M12 5v14M19 12l-7 7-7-7"/>
@@ -85,18 +90,20 @@ const mobileImage = bgImageMobile ? `url('${bgImageMobile}')` : `url('${bgImage}
     width: 100%;
     position: relative;
     padding: 8.5rem 1.5rem 4rem;
-    background-image: var(--bg-image);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
+    overflow: hidden;
   }
 
-  @media (max-width: 768px), (max-width: 1024px) and (orientation: portrait) {
-    .hero-image-banner {
-      background-image: var(--bg-image-mobile);
-    }
+  /* Positions the Astro <Image /> as a full-screen background */
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
   }
 
   .hero-overlay {

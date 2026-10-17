@@ -6,6 +6,8 @@ import GoogleMaps from '../components/GoogleMaps.astro';
 import CardColumn from '../components/CardColumn.astro';
 import WebForm from '../components/WebForm.astro';
 
+import bgImage from '../images/double-room-1.jpg';
+
 import room1 from '../images/outside-1.jpg';
 import room2 from '../images/master-room-1.jpg';
 import room3 from '../images/double-room-1.jpg';
@@ -47,12 +49,10 @@ const galleryImages = [
   title = "Heatherlea Holiday Cottage",
   lead = "Welcome to our beautiful holiday cottage in Otterburn, Northumberland. Perfect for weddings and journeys in Northumberland.",
   description = "Detached holiday cottage with four bedrooms, two living rooms, kitchen, drive, and enclosed back garden. Pets welcome. Sleeps seven.",
-  bgImage = "/double-room-1.jpg",
-  bgImageMobile = "/double-room-1.jpg",
+  bgImage = {bgImage},
   primaryButtonText = "Book Now",
   primaryButtonLink,
   tintOpacity = "40%",
-  
   />
 
 </section>
