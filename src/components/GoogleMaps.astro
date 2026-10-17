@@ -1,62 +1,58 @@
 ---
-interface Props {
-  mapEmbedUrl?: string;
-  googleMapsLink?: string;
-}
-
-const { 
-  mapEmbedUrl = "https://www.google.com/maps?q=Heatherlea+Holiday+Cottage,+Otterburn,+NE19+1NT&output=embed",
-} = Astro.props;
+import { Image } from 'astro:assets';
+import mapPreview from '../images/google-maps-screenshot.png'; // Screenshot of map pinned on Heatherlea
 ---
 
 <section class="location-section">
   <div class="location-container">
 
-    <div class="map-wrapper">
-      <iframe 
-        src={mapEmbedUrl} 
-        width="100%" 
-        height="100%" 
-        style="border:0;" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade"
-        title="Heatherlea Holiday Cottage location map"
-      ></iframe>
+    <div class="map-preview-wrapper">
+      <a href="https://maps.app.goo.gl/pAtn62EytfGniBRz9" target="_blank" rel="noopener noreferrer">
+        <Image 
+          src={mapPreview} 
+          alt="Map showing Heatherlea Holiday Cottage in Otterburn" 
+          width={600} 
+          height={400} 
+          class="map-image"
+        />
+        <span class="map-overlay-badge">Click to open directions</span>
+      </a>
     </div>
   </div>
 </section>
 
 <style>
-  .location-section {
-    background-color: #EAE1D3;
-    padding: 4rem 1.5rem;
-    color: #2c3e50;
-  }
-
-  .location-container {
-    width: 100%;
-    max-width: var(--max-width-wide);
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .map-wrapper {
-    width: 100%;
-    height: 350px;
-    margin: 0 auto;
-    border-radius: 0.75rem;
+  .map-preview-wrapper {
+    position: relative;
+    border-radius: var(--radius-md, 8px);
     overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid var(--border-subtle);
+    max-width: var(--max-width-wide);
   }
 
-  @media (min-width: 768px) {
-    .map-wrapper {
-      height: 400px;
-    }
+  .map-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .map-preview-wrapper:hover .map-image {
+    transform: scale(1.03);
+  }
+
+  .map-overlay-badge {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.75);
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    pointer-events: none;
   }
 </style>

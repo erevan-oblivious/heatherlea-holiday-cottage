@@ -405,6 +405,7 @@ hr.divider-full-inverted {
   transition: all 0.2s ease-in-out;
   width: 100%;
   max-width: 320px;
+  margin-bottom: 1.25rem;
 }
 
 .btn-primary {
